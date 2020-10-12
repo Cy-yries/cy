@@ -1,4 +1,4 @@
-package com.cy.web.config;
+package com.cy.cyNo_1.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -39,6 +39,5 @@ public class RedisConfig {
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);//hv的序列化类型
         return redisTemplate;
     }
-
 
 }

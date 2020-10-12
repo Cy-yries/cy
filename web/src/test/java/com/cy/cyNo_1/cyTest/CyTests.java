@@ -1,4 +1,4 @@
-package com.cy.web.cyTest;
+package com.cy.cyNo_1.cyTest;
 
 import org.junit.jupiter.api.Test;
 

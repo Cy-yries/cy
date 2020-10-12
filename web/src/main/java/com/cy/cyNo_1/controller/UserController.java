@@ -1,4 +1,4 @@
-package com.cy.web.controller;
+package com.cy.cyNo_1.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

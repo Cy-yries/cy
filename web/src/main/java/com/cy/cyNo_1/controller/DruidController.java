@@ -1,4 +1,4 @@
-package com.cy.web.controller;
+package com.cy.cyNo_1.controller;
 
 import com.alibaba.druid.stat.DruidStatManagerFacade;
 import org.springframework.stereotype.Controller;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2020/10/7 19:40
  * @Version 1.0
  **/
+//druid 监控接口
 @Controller
 public class DruidController {
     @RestController

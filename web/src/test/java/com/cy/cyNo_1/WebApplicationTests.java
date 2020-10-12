@@ -1,9 +1,9 @@
-package com.cy.web;
+package com.cy.cyNo_1;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.cy.web.entity.User;
-import com.cy.web.mapper.UserMapper;
-import com.cy.web.service.IUserService;
+import com.cy.cyNo_1.entity.User;
+import com.cy.cyNo_1.mapper.UserMapper;
+import com.cy.cyNo_1.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.cy.web.entity;
+package com.cy.cyNo_1.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

@@ -1,7 +1,7 @@
-package com.cy.web.mapper;
+package com.cy.cyNo_1.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cy.web.entity.User;
+import com.cy.cyNo_1.entity.User;
 
 /**
  * @ClassName UserMapper
