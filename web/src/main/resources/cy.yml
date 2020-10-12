@@ -1,0 +1,3 @@
+cy:
+  server:
+    port: 8888

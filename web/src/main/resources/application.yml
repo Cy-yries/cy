@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name: cy
+server:
+  servlet:
+    context-path: /cy
+logging:
+  level:
+    com.cy.web.mapper: trace
