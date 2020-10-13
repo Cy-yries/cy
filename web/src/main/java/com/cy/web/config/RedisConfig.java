@@ -41,6 +41,7 @@ public class RedisConfig {
         redisTemplate.setValueSerializer(jackson2JsonRedisSerializer); // value的序列化类型
         redisTemplate.setHashKeySerializer(new StringRedisSerializer());// hk的序列化类型
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);//hv的序列化类型
+
         return redisTemplate;
     }
 

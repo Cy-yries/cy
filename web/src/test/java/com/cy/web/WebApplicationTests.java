@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.geo.Distance;
+import org.springframework.data.geo.Metrics;
+import org.springframework.data.geo.Point;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.Resource;
@@ -19,10 +22,10 @@ import java.util.List;
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
 class WebApplicationTests {
-    
+
     private final UserMapper userMapper;
     private final IUserService userService;
-     private final RedisTemplate redisTemplate;
+    private final RedisTemplate redisTemplate;
     //private final StringRedisTemplate redisTemplate;
     @Resource
     private final ApplicationContext applicationContext;
@@ -46,6 +49,7 @@ class WebApplicationTests {
         System.out.println(user);
 
     }
+
     @Test
     public void test_3() {
 
@@ -53,6 +57,7 @@ class WebApplicationTests {
         System.out.println(delete);
 
     }
+
     @Test
     public void test_4() {
 
@@ -60,6 +65,7 @@ class WebApplicationTests {
         System.out.println(list);
 
     }
+
     @Test
     public void test_5() {
 
@@ -84,9 +90,10 @@ class WebApplicationTests {
         User user = new User();
         user.setNickname("Cy");
 
-        redisTemplate.opsForHash().put("123","123",user);
+        redisTemplate.opsForHash().put("123", "123", user);
 
     }
+
     @Test
     public void test_8() {
 
@@ -98,8 +105,44 @@ class WebApplicationTests {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        }
+    }
+    @Test
+    public void test_9() {
+        try {
+            //向redis中存入坐标
+            redisTemplate.opsForGeo().add("geo-001",new Point(116.405131,39.914714),"天安门");
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void test_10() {
+        try {
+
+            List list = redisTemplate.opsForGeo().position("geo-001", "王府井","天安门");
+
+            System.out.println("list = " + list);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void test_11() {
+        try {
+
+            Distance distance = redisTemplate.opsForGeo().distance("geo-001", "天安门", "王府井", Metrics.KILOMETERS);
+
+            double value = distance.getValue();
+            System.out.println("value = " + value);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
