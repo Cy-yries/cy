@@ -1,10 +1,10 @@
 package com.cy.web;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cy.web.entity.User;
 import com.cy.web.mapper.UserMapper;
 import com.cy.web.service.IUserService;
+import com.cy.web.utils.MapConvertObj;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,11 +94,7 @@ class WebApplicationTests {
         try {
             //获得的是LinkedMap对象
             Map o = (Map) redisTemplate.opsForHash().get("123", "123");
-            System.out.println("o = " + o.getClass());
-            System.out.println("o = " + o);
-            String json  = new JSONObject(o).toJSONString();
-            System.out.println("json = " + json);
-            User user = JSONObject.parseObject(json, User.class);
+            User user = MapConvertObj.convertObj(o, User.class);
             System.out.println("user = " + user);
         } catch (Exception e) {
             e.printStackTrace();
