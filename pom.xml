@@ -9,6 +9,7 @@
     <name>cy</name>
     <modules>
         <module>web</module>
+        <module>nacos_config</module>
     </modules>
 
     <properties>
@@ -17,6 +18,7 @@
         <druid.starter.version>1.1.17</druid.starter.version>
         <druid.version>1.1.10</druid.version>
         <fastjson.version>1.2.58</fastjson.version>
+        <nacos.version>0.2.7</nacos.version>
     </properties>
     <dependencies>
 
