@@ -1,4 +1,4 @@
-package com.cy.cyNo_1.controller;
+package com.cy.web.controller;
 
 import com.alibaba.druid.stat.DruidStatManagerFacade;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
-package com.cy.cyNo_1.service;
+package com.cy.web.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cy.cyNo_1.entity.User;
+import com.cy.web.entity.User;
 
 /**
  * @ClassName IUserService

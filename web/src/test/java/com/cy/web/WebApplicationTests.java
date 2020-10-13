@@ -1,9 +1,9 @@
-package com.cy.cyNo_1;
+package com.cy.web;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.cy.cyNo_1.entity.User;
-import com.cy.cyNo_1.mapper.UserMapper;
-import com.cy.cyNo_1.service.IUserService;
+import com.cy.web.entity.User;
+import com.cy.web.mapper.UserMapper;
+import com.cy.web.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +83,21 @@ class WebApplicationTests {
         redisTemplate.opsForHash().put("123","123",new User());
 
     }
+  /*  @Test
+    public void test_8() {
+
+        try {
+         redisTemplate.opsForHash().get("123", "123");
+            String s = String.valueOf(o);
+            System.out.println(o);
+            JSONObject jsonObject = JSONObject.parseObject(s);
+            System.out.println(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
+*/
+
 
 
 }

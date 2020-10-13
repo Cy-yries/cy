@@ -1,9 +1,9 @@
-package com.cy.cyNo_1.service.serviceImpl;
+package com.cy.web.service.serviceImpl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cy.cyNo_1.entity.User;
-import com.cy.cyNo_1.mapper.UserMapper;
-import com.cy.cyNo_1.service.IUserService;
+import com.cy.web.entity.User;
+import com.cy.web.mapper.UserMapper;
+import com.cy.web.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

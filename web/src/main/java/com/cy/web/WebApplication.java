@@ -1,4 +1,4 @@
-package com.cy.cyNo_1;
+package com.cy.web;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
