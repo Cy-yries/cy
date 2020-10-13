@@ -15,7 +15,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
@@ -92,8 +91,8 @@ class WebApplicationTests {
     public void test_8() {
 
         try {
-            //获得的是LinkedMap对象
-            Map o = (Map) redisTemplate.opsForHash().get("123", "123");
+            //获得的是Map(LinkedMap)对象
+            Object o = redisTemplate.opsForHash().get("123", "123");
             User user = MapConvertObj.convertObj(o, User.class);
             System.out.println("user = " + user);
         } catch (Exception e) {

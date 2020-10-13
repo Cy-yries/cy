@@ -2,8 +2,6 @@ package com.cy.web.utils;
 
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.Map;
-
 /**
  * @ClassName MapConvertObj
  * @Author Yin
@@ -12,7 +10,7 @@ import java.util.Map;
  **/
 public class MapConvertObj {
 
-    public static <T>T convertObj(Map map, Class<T> obj) {
+    public static <T>T convertObj(Object map, Class<T> obj) {
         return JSONObject.parseObject(JSONObject.toJSONString(map), obj);
     }
 
