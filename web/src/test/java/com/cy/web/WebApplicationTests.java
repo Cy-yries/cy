@@ -1,5 +1,6 @@
 package com.cy.web;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cy.web.entity.User;
 import com.cy.web.mapper.UserMapper;
@@ -14,6 +15,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.Map;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
@@ -80,23 +82,28 @@ class WebApplicationTests {
     @Test
     public void test_7() {
 
-        redisTemplate.opsForHash().put("123","123",new User());
+        User user = new User();
+        user.setNickname("Cy");
+
+        redisTemplate.opsForHash().put("123","123",user);
 
     }
-  /*  @Test
+    @Test
     public void test_8() {
 
         try {
-         redisTemplate.opsForHash().get("123", "123");
-            String s = String.valueOf(o);
-            System.out.println(o);
-            JSONObject jsonObject = JSONObject.parseObject(s);
-            System.out.println(jsonObject);
+            //获得的是LinkedMap对象
+            Map o = (Map) redisTemplate.opsForHash().get("123", "123");
+            System.out.println("o = " + o.getClass());
+            System.out.println("o = " + o);
+            String json  = new JSONObject(o).toJSONString();
+            System.out.println("json = " + json);
+            User user = JSONObject.parseObject(json, User.class);
+            System.out.println("user = " + user);
         } catch (Exception e) {
             e.printStackTrace();
         }
         }
-*/
 
 
 
