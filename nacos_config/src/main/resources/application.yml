@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name: nacos_config
+server:
+  servlet:
+    context-path: /cy

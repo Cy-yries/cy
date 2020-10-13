@@ -1,9 +1,11 @@
 package com.cy.nacos_config;
 
+import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@NacosPropertySource(dataId = "cy", autoRefreshed = true)
 public class NacosConfigApplication {
 
     public static void main(String[] args) {
