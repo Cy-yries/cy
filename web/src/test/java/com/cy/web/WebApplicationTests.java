@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.cy.web.entity.User;
 import com.cy.web.mapper.UserMapper;
 import com.cy.web.service.IUserService;
-import com.cy.web.utils.MapConvertObj;
+import com.cy.web.utils.MapUtils;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,7 +100,7 @@ class WebApplicationTests {
         try {
             //获得的是Map(LinkedMap)对象
             Object o = redisTemplate.opsForHash().get("123", "123");
-            User user = MapConvertObj.convertObj(o, User.class);
+            User user = MapUtils.convertObj(o, User.class);
             System.out.println("user = " + user);
         } catch (Exception e) {
             e.printStackTrace();
