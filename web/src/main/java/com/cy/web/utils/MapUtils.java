@@ -19,9 +19,6 @@ public class MapUtils {
         JSONObject.parseObject(JSONObject.toJSONString(map), obj);
         JSONObject.parseObject(JSONObject.toJSONString(map), obj);
         JSONObject.parseObject(JSONObject.toJSONString(map), obj);
-        JSONObject.parseObject(JSONObject.toJSONString(map), obj);
-        JSONObject.parseObject(JSONObject.toJSONString(map), obj);
-        JSONObject.parseObject(JSONObject.toJSONString(map), obj);
         return JSONObject.parseObject(JSONObject.toJSONString(map), obj);
     }
 
