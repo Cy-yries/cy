@@ -15,6 +15,7 @@ import java.util.Map;
 public class MapUtils {
 
     public static <T>T convertObj(Object map, Class<T> obj) {
+
         return JSONObject.parseObject(JSONObject.toJSONString(map), obj);
     }
 
