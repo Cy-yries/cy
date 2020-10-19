@@ -59,6 +59,17 @@
             <artifactId>nacos-discovery-spring-boot-starter</artifactId>
             <version>${nacos.discovery.version}</version>
         </dependency>
+        <!--poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+           <version>${poi.version}</version>
+        </dependency>
 
     </dependencies>
     <build>
