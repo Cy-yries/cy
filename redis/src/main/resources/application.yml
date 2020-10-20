@@ -2,10 +2,10 @@ spring:
   profiles:
     active: cy
   application:
-    name: ce_test
+    name: cy
 server:
   servlet:
-    context-path: /cy/test
+    context-path: /cy
 logging:
   level:
     com.cy.web.mapper: trace
