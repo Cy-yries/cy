@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name:
+server:
+  servlet:
+    context-path:
+logging:
+#  config: classpath:cylog.xml
