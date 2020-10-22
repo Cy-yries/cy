@@ -1,14 +1,13 @@
 package com.cy.cyw;
 
-import com.cy.cyw.utils.WebUtils;
+import com.cy.cyw.utils.PoiUtils;
 import lombok.RequiredArgsConstructor;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
+import java.io.File;
 
 @SpringBootTest
 @RequiredArgsConstructor(onConstructor = @_(@Autowired))
@@ -22,9 +21,18 @@ class CywApplicationTests {
     }
 
     @Test
-    public void xlsxTest() throws IOException, InvalidFormatException {
-      //  WebUtils.xlsxToFile(restTemplate,null,null);
-        WebUtils.xlsxToZip(restTemplate, null, null);
+    public void test_1(){
+
+        try {
+            File file  = new File("C:\\Users\\28587\\Desktop\\xlsxToFile.xlsx");
+            //PoiUtils.fileToWorkbook(file);
+            PoiUtils.fileToData(file,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
+
+
 
 }
