@@ -22,7 +22,7 @@ class CywApplicationTests {
     }
 
     @Test
-    public void test_1() throws IOException, InvalidFormatException {
+    public void xlsxTest() throws IOException, InvalidFormatException {
       //  WebUtils.xlsxToFile(restTemplate,null,null);
         WebUtils.xlsxToZip(restTemplate, null, null);
     }
