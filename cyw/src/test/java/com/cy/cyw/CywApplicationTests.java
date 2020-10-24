@@ -26,7 +26,8 @@ class CywApplicationTests {
         try {
             File file  = new File("C:\\Users\\28587\\Desktop\\xlsxToFile.xlsx");
             //PoiUtils.fileToWorkbook(file);
-            PoiUtils.fileToData(file,0);
+            //PoiUtils.excelToDataPrint(file,0,true);
+            PoiUtils.excelDataToMapColumn(file,0,0,1);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -14,8 +14,9 @@ import java.util.zip.ZipOutputStream;
 public class FileUtils {
 
     private static final int BUFFER_SIZE = 2 * 1024;
+
     /**
-     * 压缩成ZIP
+     * 压缩成ZIP 使用时用重载方法 toZip(String srcDir, String newFilename)
      *
      * @param srcDir           压缩文件夹路径
      * @param out              压缩文件输出流
@@ -44,11 +45,16 @@ public class FileUtils {
         }
     }
 
-    public static void toZip() throws FileNotFoundException {
-        String srcDir = "C:\\Users\\28587\\Desktop\\xlsxToFile\\";
-        String newFilename="C:\\Users\\28587\\Desktop\\xlsxToFile.zip";
+    public static void toZip(String srcDir, String newFilename) throws FileNotFoundException {
+
+        if (srcDir == null) {
+            srcDir = "C:\\Users\\28587\\Desktop\\xlsxToFile\\";
+        }
+        if (newFilename == null) {
+            newFilename = "C:\\Users\\28587\\Desktop\\xlsxToFile.zip";
+        }
         OutputStream out = new FileOutputStream(new File(newFilename));
-        toZip(srcDir,out,true);
+        toZip(srcDir, out, true);
     }
 
     /**
@@ -106,7 +112,7 @@ public class FileUtils {
         } finally {
             if (zos != null) {
                 try {
-                   //zos.close();
+                    //zos.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -116,22 +122,25 @@ public class FileUtils {
     }
 
     /*
-    * 清空文件夹*/
-    public static boolean deleteDir(String path){
+     * 清空文件夹*/
+    public static boolean deleteDir(String path) {
+        if (path == null) {
+            path = "C:\\Users\\28587\\Desktop\\xlsxToFile\\";
+        }
         File file = new File(path);
-        if(!file.exists()){//判断是否待删除目录是否存在
+        if (!file.exists()) {//判断是否待删除目录是否存在
             System.err.println("The dir are not exists!");
             return false;
         }
 
         String[] content = file.list();//取得当前目录下所有文件和文件夹
-        for(String name : content){
+        for (String name : content) {
             File temp = new File(path, name);
-            if(temp.isDirectory()){//判断是否是目录
+            if (temp.isDirectory()) {//判断是否是目录
                 deleteDir(temp.getAbsolutePath());//递归调用，删除目录里的内容
                 temp.delete();//删除空目录
-            }else{
-                if(!temp.delete()){//直接删除文件
+            } else {
+                if (!temp.delete()) {//直接删除文件
                     System.err.println("Failed to delete " + name);
                 }
             }
@@ -139,8 +148,5 @@ public class FileUtils {
         return true;
     }
 
-    public static void deleteDir() {
-        String path="C:\\Users\\28587\\Desktop\\xlsxToFile\\";
-        deleteDir(path);
-    }
+
 }
