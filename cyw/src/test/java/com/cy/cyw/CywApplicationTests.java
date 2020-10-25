@@ -1,6 +1,5 @@
 package com.cy.cyw;
 
-import com.cy.cyw.utils.PoiUtils;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,19 +20,17 @@ class CywApplicationTests {
     }
 
     @Test
-    public void test_1(){
-
+    public void test_1() {
         try {
-            File file  = new File("C:\\Users\\28587\\Desktop\\xlsxToFile.xlsx");
+            File file = new File("C:\\Users\\28587\\Desktop\\xlsxToFile.xlsx");
             //PoiUtils.fileToWorkbook(file);
             //PoiUtils.excelToDataPrint(file,0,true);
-            PoiUtils.excelDataToMapColumn(file,0,0,1);
+            //PoiUtils.excelDataToMapColumn(file,0,0,1);
+            /*List list = PoiUtils.excelDataToMapList(file, 0);
+            System.out.println("list = " + list);*/
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-
 
 }

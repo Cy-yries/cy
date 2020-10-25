@@ -5,10 +5,11 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -70,7 +71,10 @@ public class PoiUtils {
     }
 
     /*
-     * 获取某两列的键值map
+     * 获取excel某两列的键值map
+     * oneIndex 获取的第一列索引
+     * twoIndex 获取的第二列索引
+     *
      * */
     public static Map excelDataToMapColumn(File file, Integer sheetAt, Integer oneIndex, Integer twoIndex) throws Exception {
         Map<String, String> map = new HashMap<>();
@@ -95,29 +99,48 @@ public class PoiUtils {
         for (Map.Entry entry:entries){
             System.out.println( entry);
         }*/
-
         return map;
     }
 
 
-    public static Map excelDataToMap(File file, Integer sheetAt) throws Exception {
-
-        Map<String, String> map = new HashMap<>();
+    /*
+     * 将excel转为mapList
+     *
+     * */
+    public static List excelDataToMapList(File file, Integer sheetAt) throws Exception {
+        List mapList = new ArrayList();
         Workbook workbook = excelToWorkbook(file);
         Sheet sheet = workbook.getSheetAt(sheetAt);
-
-        for (Row row : sheet) {
-            for (Cell cell : row) {
-
-            }
+        List<String> columnList = new ArrayList();
+        Row sheetRow = sheet.getRow(0);
+        for (Cell cell : sheetRow) {
+            columnList.add(getCellValue(cell));
         }
-        return map;
+        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+            Map<String, String> map = new HashMap<>();
+            Row row = sheet.getRow(i);
+            for (int j = 0; j < row.getLastCellNum(); j++) {
+                Cell cell = row.getCell(j);
+                map.put(columnList.get(j), getCellValue(cell));
+            }
+            mapList.add(map);
+        }
+        return mapList;
     }
 
-
-
-
-
+    /*
+    将excel转为mapList对象list
+    * */
+    public static <T>List<T> excelDataToObjectList(File file, Integer sheetAt, Class<T> obj ) throws Exception {
+        List<T> resultList =new ArrayList<>();
+        List<Map> list = excelDataToMapList(file, sheetAt);
+        for (Map<String, String> map : list) {
+            System.out.println("map = " + map);
+            T t = MapUtils.convertObj(map, obj);
+            resultList.add(t);
+        }
+        return resultList;
+    }
 
     /*
     获取单元格的值 String
@@ -157,7 +180,6 @@ public class PoiUtils {
     public static String getCellValue(Cell cell) {
         return getCellValue(cell, false);
     }
-
 
     // 判断是否是03的excel:xls
     private static boolean isExcel2003(String fileName) {
