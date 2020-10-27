@@ -1,11 +1,12 @@
 package com.cy.web.config;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
+import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * @ClassName NacosConfig
@@ -17,13 +18,24 @@ import javax.annotation.PostConstruct;
 public class NacosConfig {
 
     @NacosInjected
-    //使用该注解获取或注册实例
+    //使用该注解可注入NamingService和ConfigService
     private NamingService namingService;
+    @NacosInjected
+    private ConfigService configService;
 
-    @PostConstruct
-    //使用该注解的方法将会在依赖注入完成后被自动调用
+    /*@PostConstruct
+    //使用该注解的方法将会在构造函数完成后被自动调用
     private void registerInstance() throws NacosException {
-    namingService.registerInstance("demo","127.0.0.1", 8888);
+        //注册服务实例
+        namingService.registerInstance("demo", "127.0.0.1", 8888);
+    }*/
+
+    @PreDestroy
+    //使用该注解的方法将会在servlet卸载完成后被自动调用
+    private void deregisterInstance() throws NacosException {
+        //注销服务实例
+        namingService.deregisterInstance("demo", "127.0.0.1", 8888);
     }
+
 
 }

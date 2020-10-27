@@ -2,7 +2,7 @@ spring:
   profiles:
     active: cy
   application:
-    name: ce_test
+    name: web_test
 server:
   servlet:
     context-path: /cy/test
