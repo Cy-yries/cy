@@ -2,11 +2,8 @@ package com.cy.web.config;
 
 import com.alibaba.nacos.api.annotation.NacosInjected;
 import com.alibaba.nacos.api.config.ConfigService;
-import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingService;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.PreDestroy;
 
 /**
  * @ClassName NacosConfig
@@ -30,12 +27,12 @@ public class NacosConfig {
         namingService.registerInstance("demo", "127.0.0.1", 8888);
     }*/
 
-    @PreDestroy
+    /*@PreDestroy
     //使用该注解的方法将会在servlet卸载完成后被自动调用
     private void deregisterInstance() throws NacosException {
         //注销服务实例
         namingService.deregisterInstance("demo", "127.0.0.1", 8888);
-    }
+    }*/
 
 
 }
