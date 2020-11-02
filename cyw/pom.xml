@@ -32,6 +32,12 @@
             <version>${poi.version}</version>
         </dependency>
 
+        <!--nacos discovery-->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+            <version>${nacos.discovery.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
