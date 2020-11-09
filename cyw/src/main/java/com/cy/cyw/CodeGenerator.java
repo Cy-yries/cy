@@ -35,9 +35,8 @@ public class CodeGenerator {
     private String url;
 
     private static String moduleStr = "";
-    //包路径
+    //包路径s
     private static String packageStr = "com.cy";
-
     /**
      * <p>
      * 读取控制台内容
@@ -61,15 +60,14 @@ public class CodeGenerator {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CywApplication.class);
         CodeGenerator codeGenerator = context.getBean(CodeGenerator.class);
-        System.out.println("codeGenerator = " + codeGenerator);
 
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + moduleStr+"/src/main/java");
-        gc.setAuthor("Cy");
+        gc.setOutputDir("code_generate/src/main/java");
+        gc.setAuthor("cy");
         gc.setOpen(false);
 //        gc.setSwagger2(true); //实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
@@ -104,7 +102,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + moduleStr + "/src/main/resources/mapper/" + pc.getModuleName()
+                return "code_generate/src/main/resources/mapper/" + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
