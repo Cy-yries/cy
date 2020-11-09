@@ -26,6 +26,9 @@
         <nacos.config.version>0.2.7</nacos.config.version>
         <nacos.discovery.version>0.2.7</nacos.discovery.version>
         <poi.version>3.17</poi.version>
+        <freemarker.version>2.3.28</freemarker.version>
+        <velocity.engine.core.version>2.1</velocity.engine.core.version>
+        <mybatis.plus.generator.version>3.1.1</mybatis.plus.generator.version>
     </properties>
     <dependencies>
 

@@ -5,6 +5,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -19,9 +20,9 @@ import java.util.Map;
  * @Version 1.0
  **/
 public class PoiUtils {
-    /*
-    文件转为workbook对象
-    * */
+    /**
+     * 文件转为workbook对象
+     */
     public static Workbook excelToWorkbook(File file) throws Exception {
 
         FileInputStream fileInputStream = new FileInputStream(file);
@@ -36,9 +37,9 @@ public class PoiUtils {
         return workbook;
     }
 
-    /*
+    /**
      * 输出excel
-     * */
+     */
     public static void excelToDataPrint(File file, Integer sheetAt, Boolean flag) throws Exception {
         Workbook workbook = excelToWorkbook(file);
         Sheet sheet = workbook.getSheetAt(sheetAt);
@@ -46,8 +47,8 @@ public class PoiUtils {
         for (Row row : sheet) {
             for (Cell cell : row) {
                 if (flag) {
-                    //获取并输出单元的位置和值
                     try {
+                        //获取单元格的位置
                         CellReference cellRef = new CellReference(row.getRowNum(), cell.getColumnIndex());
                         System.out.print(cellRef.formatAsString());
                         System.out.print(" - ");
@@ -63,19 +64,18 @@ public class PoiUtils {
         }
     }
 
-    /*
+    /**
      * 重载
-     * */
+     */
     public static void excelToDataPrint(File file, Integer sheetAt) throws Exception {
         excelToDataPrint(file, sheetAt, false);
     }
 
-    /*
+    /**
      * 获取excel某两列的键值map
      * oneIndex 获取的第一列索引
      * twoIndex 获取的第二列索引
-     *
-     * */
+     */
     public static Map excelDataToMapColumn(File file, Integer sheetAt, Integer oneIndex, Integer twoIndex) throws Exception {
         Map<String, String> map = new HashMap<>();
         Workbook workbook = excelToWorkbook(file);
@@ -100,10 +100,9 @@ public class PoiUtils {
     }
 
 
-    /*
+    /**
      * 将excel转为mapList
-     *
-     * */
+     */
     public static List excelDataToMapList(File file, Integer sheetAt) throws Exception {
         List mapList = new ArrayList();
         Workbook workbook = excelToWorkbook(file);
@@ -125,11 +124,11 @@ public class PoiUtils {
         return mapList;
     }
 
-    /*
-    将excel转为mapList对象list
-    * */
-    public static <T>List<T> excelDataToObjectList(File file, Integer sheetAt, Class<T> obj ) throws Exception {
-        List<T> resultList =new ArrayList<>();
+    /**
+     * 将excel转为mapList对象list
+     */
+    public static <T> List<T> excelDataToObjectList(File file, Integer sheetAt, Class<T> obj) throws Exception {
+        List<T> resultList = new ArrayList<>();
         List<Map> list = excelDataToMapList(file, sheetAt);
         for (Map<String, String> map : list) {
             System.out.println("map = " + map);
@@ -139,9 +138,9 @@ public class PoiUtils {
         return resultList;
     }
 
-    /*
-    获取单元格的值 String
-    * */
+    /**
+     * 获取单元格的值 String
+     */
     public static String getCellValue(Cell cell, Boolean flag) {
         String str = "";
         switch (cell.getCellTypeEnum()) {
@@ -171,9 +170,9 @@ public class PoiUtils {
         return str;
     }
 
-    /*
-     重载
-    * */
+    /**
+     * 重载
+     */
     public static String getCellValue(Cell cell) {
         return getCellValue(cell, false);
     }

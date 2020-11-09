@@ -24,11 +24,12 @@ public class WebUtils {
 
     private RestTemplate restTemplate;
 
-    /*将资源路径转为本地文件
-     * */
+    /**
+     * 将资源路径转为本地文件
+     */
     public static void urlToFile(RestTemplate restTemplate, String url, String path, String fileName) {
         // url = "http://1301915397.vod2.myqcloud.com/e5ac1d89vodcq1301915397/5d8a59c35285890808489882396/5z5yXOFxtaMA.jpg";
-        path = "C:\\Users\\28587\\Desktop\\xlsxToFile\\";
+        // path = "C:\\Users\\28587\\Desktop\\xlsxToFile\\";
         String pathName = path + fileName;
         try {
             Resource forObject = restTemplate.getForObject(url, Resource.class);
@@ -41,7 +42,7 @@ public class WebUtils {
             try {
                 downloadFile = new FileOutputStream(new File(pathName));
             } catch (FileNotFoundException e) {
-                pathName= fileName.replaceAll(" ","");
+                pathName = fileName.replaceAll(" ", "");
                 downloadFile = new FileOutputStream(new File(pathName));
             }
 
@@ -62,11 +63,12 @@ public class WebUtils {
 
     }
 
-    /*将xlsx表格转为本地文件
-    ~~~~依赖urlToFile()
-    第一列 文件名
-    第二列 文件路径
-     * */
+    /**
+     * 将xlsx表格转为本地文件
+     * ~~~~依赖urlToFile()
+     * 第一列 文件名
+     * 第二列 文件路径
+     */
     public static void xlsxToFile(RestTemplate restTemplate, String openPath, Integer sheetNum) throws InvalidFormatException, IOException {
         if (sheetNum == null) {
             sheetNum = 0;
@@ -110,14 +112,15 @@ public class WebUtils {
 
     }
 
-    /*将xlsx表格转为本地压缩文件
-    使用urlToFile()
-    第一列 文件名
-    第二列 文件路径
-     * */
+    /**
+     * 将xlsx表格转为本地压缩文件
+     * 使用urlToFile()
+     * 第一列 文件名
+     * 第二列 文件路径
+     */
     public static void xlsxToZip(@NotNull RestTemplate restTemplate, String openPath, Integer sheetNum) throws InvalidFormatException, IOException {
         xlsxToFile(restTemplate, openPath, sheetNum);
-        FileUtils.toZip(null,null);
+        FileUtils.toZip(null, null);
         FileUtils.deleteDir(null);
     }
 }
