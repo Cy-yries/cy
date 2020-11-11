@@ -11,7 +11,6 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.cy.cyw.config.YamlPropertySourceFactory;
-import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +22,6 @@ import java.util.Scanner;
 
 @Configuration
 @PropertySource(value = "classpath:application-dao.yml", factory = YamlPropertySourceFactory.class)
-@ToString
 public class CodeGenerator {
     @Value("${spring.datasource.password}")
     private String password;
@@ -34,27 +32,11 @@ public class CodeGenerator {
     @Value("${spring.datasource.url}")
     private String url;
 
-    private static String moduleStr = "";
-    //包路径s
+    //包路径
     private static String packageStr = "com.cy";
-    /**
-     * <p>
-     * 读取控制台内容
-     * </p>
-     */
-    public static String scanner(String tip) {
-        Scanner scanner = new Scanner(System.in);
-        StringBuilder help = new StringBuilder();
-        help.append("请输入" + tip + "：");
-        System.out.println(help.toString());
-        if (scanner.hasNext()) {
-            String ipt = scanner.next();
-            if (StringUtils.isNotEmpty(ipt)) {
-                return ipt;
-            }
-        }
-        throw new MybatisPlusException("请输入正确的" + tip + "！");
-    }
+
+    private static String dirPathSrc = "code_generate/src/main/java";
+    private static String mapperPath = "code_generate/src/main/resources/mapper/";
 
     public static void main(String[] args) {
 
@@ -66,7 +48,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir("code_generate/src/main/java");
+        gc.setOutputDir(dirPathSrc);
         gc.setAuthor("cy");
         gc.setOpen(false);
 //        gc.setSwagger2(true); //实体属性 Swagger2 注解
@@ -102,7 +84,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return "code_generate/src/main/resources/mapper/" + pc.getModuleName()
+                return mapperPath + pc.getModuleName()
                         + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
@@ -133,5 +115,25 @@ public class CodeGenerator {
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();
         context.close();
+    }
+
+
+    /**
+     * <p>
+     * 读取控制台内容
+     * </p>
+     */
+    public static String scanner(String tip) {
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder help = new StringBuilder();
+        help.append("请输入" + tip + "：");
+        System.out.println(help.toString());
+        if (scanner.hasNext()) {
+            String ipt = scanner.next();
+            if (StringUtils.isNotEmpty(ipt)) {
+                return ipt;
+            }
+        }
+        throw new MybatisPlusException("请输入正确的" + tip + "！");
     }
 }
