@@ -12,6 +12,7 @@
         <module>nacos_config</module>
         <module>redis</module>
         <module>cyw</module>
+        <module>getway</module>
     </modules>
 
     <properties>
