@@ -3,7 +3,8 @@ spring:
     password: root
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cy?&useUnicode=true&useSSL=false&serverTimezone=UTC
-#    jinyuan
-#    url: jdbc:mysql://10.0.20.42:3306/supply_platform?useUnicode=true&useSSL=false
+    #    url: jdbc:mysql://localhost:3306/cy?&useUnicode=true&useSSL=false&serverTimezone=UTC
+    #    jinyuan
+    #url: jdbc:mysql://10.0.20.46:3306/supply_platform?useUnicode=true&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://10.0.20.46:3306/jfq?useUnicode=true&useSSL=false&serverTimezone=UTC
 

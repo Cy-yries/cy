@@ -149,7 +149,8 @@ public class PoiUtils {
                 break;
             case NUMERIC:
                 if (DateUtil.isCellDateFormatted(cell)) {
-                    str = String.valueOf(cell.getDateCellValue());
+                    // str = String.valueOf(cell.getDateCellValue());
+                    str = String.valueOf(cell.getRichStringCellValue().getString());
                 } else {
                     str = String.valueOf(cell.getNumericCellValue());
                 }

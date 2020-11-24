@@ -3,6 +3,6 @@ server:
 spring:
   profiles:
     include:
-      - nacos
+      - dao
 
 

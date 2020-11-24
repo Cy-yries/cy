@@ -13,6 +13,7 @@
         <module>redis</module>
         <module>cyw</module>
         <module>getway</module>
+        <module>reptile</module>
     </modules>
 
     <properties>
@@ -20,7 +21,7 @@
         <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
-        <mybatis.plus.version>3.4.0</mybatis.plus.version>
+        <mybatis.plus.version>3.1.0</mybatis.plus.version>
         <druid.starter.version>1.1.17</druid.starter.version>
         <druid.version>1.1.10</druid.version>
         <fastjson.version>1.2.58</fastjson.version>

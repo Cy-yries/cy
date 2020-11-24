@@ -1,15 +1,13 @@
-package com.cy.cyw;
+package com.cy.reptile;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.cy.cyw.mapper")
-public class CywApplication {
+public class ReptileApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CywApplication.class, args);
+        SpringApplication.run(ReptileApplication.class, args);
     }
 
 }
