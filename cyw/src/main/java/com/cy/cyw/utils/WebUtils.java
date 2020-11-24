@@ -59,9 +59,7 @@ public class WebUtils {
         }
     }
 
-    public static void urlToFile() {
 
-    }
 
     /**
      * 将xlsx表格转为本地文件
