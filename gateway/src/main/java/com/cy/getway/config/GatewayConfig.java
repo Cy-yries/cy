@@ -16,7 +16,7 @@ public class GatewayConfig {
     public RouteLocator customerRouteLocator(RouteLocatorBuilder builder) {
         RouteLocatorBuilder.Builder routes = builder.routes();
         routes.route("path var",
-                r -> r.path("/guonei")
+                r -> r.path("/**")
                         .uri("http://news.baidu.com/guonei")).build();
         return routes.build();
     }
