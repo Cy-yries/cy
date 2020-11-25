@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name: gateway
+server:
+  servlet:
+    context-path:
+#logging:
+#  level:
+#    root: debug
+#    config: classpath:cylog.xml

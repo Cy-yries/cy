@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: neo_route
+          uri: http://commodity
+          predicates:
+            - Path=/**
+
+
