@@ -7,4 +7,5 @@ server:
   servlet:
     context-path:
 logging:
+
 #  config: classpath:cylog.xml

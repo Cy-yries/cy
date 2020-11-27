@@ -33,7 +33,7 @@ public class CodeGenerator {
     private String url;
 
     //包路径
-    private static String packageStr = "com.cy";
+    private static String packageStr = "com.jinyuan";
 
     private static String dirPathSrc = "code_generate/src/main/java";
     private static String mapperPath = "code_generate/src/main/resources/mapper/";

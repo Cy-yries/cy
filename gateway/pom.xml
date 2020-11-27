@@ -10,9 +10,14 @@
     <artifactId>getway</artifactId>
     <name>gateway</name>
        <dependencies>
+
            <dependency>
                <groupId>org.springframework.cloud</groupId>
                <artifactId>spring-cloud-starter-gateway</artifactId>
+           </dependency>
+           <dependency>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-starter-actuator</artifactId>
            </dependency>
 
            <!--nacos config-->
@@ -27,8 +32,6 @@
                <artifactId>nacos-discovery-spring-boot-starter</artifactId>
                <version>${nacos.discovery.version}</version>
            </dependency>
-
-
        </dependencies>
     <build>
         <plugins>
@@ -38,5 +41,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
