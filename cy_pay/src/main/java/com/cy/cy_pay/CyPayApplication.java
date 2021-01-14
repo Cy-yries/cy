@@ -1,13 +1,13 @@
-package com.cy.lm;
+package com.cy.cy_pay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LmApplication {
+public class CyPayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LmApplication.class, args);
+        SpringApplication.run(CyPayApplication.class, args);
     }
 
 }

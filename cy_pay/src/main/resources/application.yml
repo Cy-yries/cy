@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name: cy_pay
+server:
+  servlet:
+    context-path: /cy
+logging:
+  level:
+    root: info
+#  config: classpath:cylog.xml
+
+

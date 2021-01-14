@@ -12,7 +12,7 @@
         <module>nacos_config</module>
         <module>redis</module>
         <module>cyw</module>
-        <module>lm</module>
+        <module>cy_pay</module>
         <module>gateway</module>
     </modules>
 
@@ -21,6 +21,8 @@
         <spring.boot.version>2.3.3.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
         <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
+        <spring.web.version>2.3.5.RELEASE</spring.web.version>
+        <spring.actuator.version>2.3.3.RELEASE</spring.actuator.version>
         <mybatis.plus.version>3.1.0</mybatis.plus.version>
         <druid.starter.version>1.1.17</druid.starter.version>
         <druid.version>1.1.10</druid.version>
@@ -31,6 +33,7 @@
         <freemarker.version>2.3.28</freemarker.version>
         <velocity.engine.core.version>2.1</velocity.engine.core.version>
         <mybatis.plus.generator.version>3.1.1</mybatis.plus.generator.version>
+        <bouncycastle.version>1.56</bouncycastle.version>
     </properties>
     <dependencies>
 
@@ -51,6 +54,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

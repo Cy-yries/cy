@@ -7,7 +7,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @ClassName CyTests
@@ -29,18 +30,18 @@ public class CyTests {
             System.out.println();
             System.out.println(Arrays.toString(strings));
         }
-        List<String[]> result = new ArrayList<>();
+
     }
 
     @Test
-    public void demo_2() {
-
-
-
-
+    public static void demo_2() {
+        //Unifiedorder unifiedorder = new Unifiedorder();
+       // System.out.println("unifiedorder = " + unifiedorder);
     }
 
-
+    public static void main(String[] args) throws NoSuchFieldException {
+    
+    }
 }
 
 
