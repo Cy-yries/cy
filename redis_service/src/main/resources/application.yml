@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name: cy_redis
+server:
+  servlet:
+    context-path: /cy/redis
+logging:
+  level:
+    root: info
+#  config: classpath:cylog.xml
