@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: cy
+  application:
+    name: code_generate
+
+logging:
+  level:
+    root: info
+    com.cy.code_generate.commont.CodeGenerator: debug
+    com.baomidou.mybatisplus.generator: debug
+#  config: classpath:cylog.xml

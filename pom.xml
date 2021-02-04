@@ -11,6 +11,7 @@
         <module>web</module>
         <module>redis_service</module>
         <module>cyw</module>
+        <module>code_generate</module>
     </modules>
 
     <properties>
@@ -20,17 +21,25 @@
         <spring.cloud.alibaba.version>2.1.1.RELEASE</spring.cloud.alibaba.version>
         <spring.web.version>2.3.5.RELEASE</spring.web.version>
         <spring.actuator.version>2.3.3.RELEASE</spring.actuator.version>
-        <mybatis.plus.version>3.1.0</mybatis.plus.version>
+
+        <mybatis.plus.version>3.4.2</mybatis.plus.version>
+        <mybatis.plus.generator.version>3.4.0</mybatis.plus.generator.version>
+
         <druid.starter.version>1.1.17</druid.starter.version>
         <druid.version>1.1.10</druid.version>
+
         <fastjson.version>1.2.58</fastjson.version>
+
         <nacos.config.version>0.2.7</nacos.config.version>
         <nacos.discovery.version>0.2.7</nacos.discovery.version>
+
         <poi.version>3.17</poi.version>
+
         <freemarker.version>2.3.28</freemarker.version>
-        <velocity.engine.core.version>2.1</velocity.engine.core.version>
-        <mybatis.plus.generator.version>3.1.1</mybatis.plus.generator.version>
+        <velocity.engine.core.version>2.2</velocity.engine.core.version>
+
         <bouncycastle.version>1.56</bouncycastle.version>
+
         <httpclient.version>4.5.13</httpclient.version>
     </properties>
     <dependencies>
@@ -64,6 +73,7 @@
             </exclusions>
         </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
